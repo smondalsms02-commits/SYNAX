@@ -442,7 +442,7 @@ function requireAdminAuth(req: Request, res: Response, next: NextFunction): void
 
 export async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT) || 8080;
 
   // CORS and preflight handling for multi-device & reverse-proxy access
   app.use((req, res, next) => {
