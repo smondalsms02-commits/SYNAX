@@ -14,4 +14,4 @@ Important:
 - Do not delete server.ts.
 - Do not change the current UI.
 - This keeps the real Express backend and WebSocket server together with the frontend.
-- The current JSON database and uploads are still filesystem-based, so this deployment is suitable for testing but is not durable production storage..
+- The current JSON database and uploads are still filesystem-based, so this deployment is suitable for testing but is not durable production storage...
