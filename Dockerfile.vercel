@@ -1,0 +1,18 @@
+FROM node:24-bookworm-slim
+
+WORKDIR /app
+
+# Use npm so the old Bun lockfile does not affect the deployment.
+COPY package.json ./
+RUN npm install
+
+# Copy the complete SYNAX project.
+COPY . .
+
+ENV NODE_ENV=production
+
+# Build the React/Vite frontend and bundle the Express/WebSocket server.
+RUN npm run build
+
+# Vercel provides PORT at runtime; SYNAX already uses process.env.PORT.
+CMD ["node", "dist/server.cjs"]
